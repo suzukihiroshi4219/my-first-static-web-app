@@ -143,6 +143,7 @@ export class GraphComponent implements OnInit {
  
    // チャートの設定
    legend: boolean = true;
+   legendTitle: string = "凡例";
    showLabels: boolean = true;
    animations: boolean = true;
    xAxis: boolean = true;
