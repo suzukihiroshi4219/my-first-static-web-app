@@ -21,11 +21,15 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MapDialogComponent } from './map-dialog/map-dialog.component';
 import { MatDialogModule } from "@angular/material/dialog";
+import { NgxChartsModule } from "@swimlane/ngx-charts";
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, GraphComponent, HeaderComponent, FooterComponent, MapDialogComponent],
   imports: [
     RouterModule,
+    NgxChartsModule,
+    MatSelectModule,
     FlexLayoutModule,
     GoogleMapsModule, 
     BrowserModule,
