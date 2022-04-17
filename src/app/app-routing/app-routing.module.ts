@@ -1,23 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent }  from '../login/login.component';
-import { GraphComponent }  from '../graph/graph.component';
+import { LoginComponent } from '../login/login.component';
 import { CommonModule } from '@angular/common';
-import { MapDialogComponent } from '../map-dialog/map-dialog.component';
+import { MeasurementResultComponent } from '../measurement-result/measurement-result.component';
 
 const routes: Routes = [
-  { path: 'graph', component: GraphComponent },
+  { path: 'measurement-result', component: MeasurementResultComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: "dialog", component: MapDialogComponent }
 ];
 
 @NgModule({
   declarations: [],
-  imports: [
-    RouterModule.forRoot(routes),
-    CommonModule
-  ],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes), CommonModule],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

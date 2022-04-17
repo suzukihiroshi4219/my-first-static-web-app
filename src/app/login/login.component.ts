@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 import { LoginModel } from './loginModel';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -10,19 +10,17 @@ export class PrivateAPIKeySet {
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   keySet = new PrivateAPIKeySet('', '');
   hide = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit(): void {
-    this.router.navigate(['graph']);
+    this.router.navigate(['measurement-result']);
   }
 }

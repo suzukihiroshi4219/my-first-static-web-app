@@ -12,26 +12,37 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
-import { GraphComponent } from './graph/graph.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MatSelectModule } from '@angular/material/select';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { MeasurementResultComponent } from './measurement-result/measurement-result.component';
 import { MapDialogComponent } from './map-dialog/map-dialog.component';
-import { MatDialogModule } from "@angular/material/dialog";
-import { NgxChartsModule } from "@swimlane/ngx-charts";
-import {MatSelectModule} from '@angular/material/select';
+import { GraphComponent } from './graph/graph.component';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, GraphComponent, HeaderComponent, FooterComponent, MapDialogComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    GraphComponent,
+    HeaderComponent,
+    FooterComponent,
+    MapDialogComponent,
+    MeasurementResultComponent,
+    TableComponent,
+  ],
   imports: [
     RouterModule,
     NgxChartsModule,
     MatSelectModule,
     FlexLayoutModule,
-    GoogleMapsModule, 
+    GoogleMapsModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatTableModule,
@@ -44,11 +55,12 @@ import {MatSelectModule} from '@angular/material/select';
     MatDialogModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
-  enabled: environment.production,
-  // Register the ServiceWorker as soon as the application is stable
-  // or after 30 seconds (whichever comes first).
-  registrationStrategy: 'registerWhenStable:30000'
-})],
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
+  ],
   bootstrap: [AppComponent],
   entryComponents: [MapDialogComponent],
 })
