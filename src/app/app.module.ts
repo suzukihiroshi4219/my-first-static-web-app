@@ -25,6 +25,8 @@ import { MeasurementResultComponent } from './measurement-result/measurement-res
 import { MapDialogComponent } from './map-dialog/map-dialog.component';
 import { GraphComponent } from './graph/graph.component';
 import { TableComponent } from './table/table.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { TableComponent } from './table/table.component';
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatPaginatorModule,
+    MatSortModule,
     MatIconModule,
     FormsModule,
     MatDialogModule,

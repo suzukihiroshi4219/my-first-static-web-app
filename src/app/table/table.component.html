@@ -1,85 +1,93 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+<table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8 demo-table">
   <!-- tm Column -->
   <ng-container matColumnDef="tm">
-    <th mat-header-cell *matHeaderCellDef>受信時間</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="受信時間で並替え">受信時間</th>
     <td mat-cell *matCellDef="let element">{{ element.tm }}</td>
+  </ng-container>
+
+  <!-- Map Action Column -->
+  <ng-container matColumnDef="map-action">
+    <th mat-header-cell *matHeaderCellDef>位置</th>
+    <td mat-cell *matCellDef="let element" class="action-link">
+      <a (click)="openDialog(element)"><button mat-raised-button color='primary'>地図</button></a>
+    </td>
   </ng-container>
 
   <!-- t1 Column -->
   <ng-container matColumnDef="t1">
-    <th mat-header-cell *matHeaderCellDef>環境温度[℃]</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="環境温度で並替え">環境温度[℃]</th>
     <td mat-cell *matCellDef="let element">{{ element.t1 }}</td>
   </ng-container>
 
   <!-- h1 Column -->
   <ng-container matColumnDef="h1">
-    <th mat-header-cell *matHeaderCellDef>環境湿度[%]</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="環境湿度で並替え">環境湿度[%]</th>
     <td mat-cell *matCellDef="let element">{{ element.h1 }}</td>
   </ng-container>
 
   <!-- wb Column -->
   <ng-container matColumnDef="wb">
-    <th mat-header-cell *matHeaderCellDef>WBGT</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="WBGTで並替え">WBGT</th>
     <td mat-cell *matCellDef="let element">{{ element.wb }}</td>
   </ng-container>
 
   <!-- t2 Column -->
   <ng-container matColumnDef="t2">
-    <th mat-header-cell *matHeaderCellDef>頭部温度[℃]</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="頭部温度で並替え">頭部温度[℃]</th>
     <td mat-cell *matCellDef="let element">{{ element.t2 }}</td>
   </ng-container>
 
   <!-- h2 Column -->
   <ng-container matColumnDef="h2">
-    <th mat-header-cell *matHeaderCellDef>頭部湿度[%]</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="頭部湿度で並替え">頭部湿度[%]</th>
     <td mat-cell *matCellDef="let element">{{ element.h2 }}</td>
   </ng-container>
 
   <!-- hs Column -->
   <ng-container matColumnDef="hs">
-    <th mat-header-cell *matHeaderCellDef>頭部発汗量[g]</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="頭部発汗量で並替え">頭部発汗量[g]</th>
     <td mat-cell *matCellDef="let element">{{ element.hs }}</td>
   </ng-container>
 
   <!-- bs Column -->
   <ng-container matColumnDef="bs">
-    <th mat-header-cell *matHeaderCellDef>全身発汗量[g]</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="全身発汗量で並替え">全身発汗量[g]</th>
     <td mat-cell *matCellDef="let element">{{ element.bs }}</td>
   </ng-container>
 
   <!-- hr Column -->
   <ng-container matColumnDef="hr">
-    <th mat-header-cell *matHeaderCellDef>心拍数</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="心拍数で並替え">心拍数</th>
     <td mat-cell *matCellDef="let element">{{ element.hr }}</td>
   </ng-container>
 
   <!-- mv Column -->
   <ng-container matColumnDef="mv">
-    <th mat-header-cell *matHeaderCellDef>動作量</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="動作量で並替え">動作量</th>
     <td mat-cell *matCellDef="let element">{{ element.mv }}</td>
   </ng-container>
 
   <!-- bv Column -->
   <ng-container matColumnDef="bv">
-    <th mat-header-cell *matHeaderCellDef>電池電圧[V]</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="電池電圧で並替え">電池電圧[V]</th>
     <td mat-cell *matCellDef="let element">{{ element.bv }}</td>
   </ng-container>
 
   <!-- w1 Column -->
   <ng-container matColumnDef="w1">
-    <th mat-header-cell *matHeaderCellDef>警告1</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="警告1で並替え">警告1</th>
     <td mat-cell *matCellDef="let element">{{ element.w1 }}</td>
   </ng-container>
 
   <!-- w2 Column -->
   <ng-container matColumnDef="w2">
-    <th mat-header-cell *matHeaderCellDef>警告2</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="警告2で並替え">警告2</th>
     <td mat-cell *matCellDef="let element">{{ element.w2 }}</td>
   </ng-container>
 
   <!-- w3 Column -->
   <ng-container matColumnDef="w3">
-    <th mat-header-cell *matHeaderCellDef>警告3</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="警告3で並替え">警告3</th>
     <td mat-cell *matCellDef="let element">{{ element.w3 }}</td>
   </ng-container>
 
@@ -91,3 +99,9 @@
     *matRowDef="let row; columns: displayedColumns"
   ></tr>
 </table>
+<mat-paginator
+  [pageSizeOptions]="[3, 5, 10, 20]"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>
